@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   return (
@@ -14,19 +14,16 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Next JS Algorithms</h1>
-        {/* div with titles */}
-        <div className={styles.grid}>
-          <div className={styles.card}>
-            {/* link to factorial page */}
-            <div className={styles.title}>
-              <a href="/factorial" className={styles.link}>
-                factorial
-              </a>
-              <br />
-              <a href="/fibonacci" className={styles.link}>
-                fibonacci
-              </a>
-            </div>
+        <div className={styles.card}>
+          <div className={styles.title}>
+            <Link href="/factorial">
+              <a>Factorial</a>
+            </Link>
+          </div>
+          <div className={styles.title}>
+            <Link href="/fibonacci">
+              <a>Fibonacci</a>
+            </Link>
           </div>
         </div>
       </main>
