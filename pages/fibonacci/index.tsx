@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 const Fibonacci: NextPage = () => {
   const [fibArray, setFibArray] = useState<number[]>([]);
+  const [value, setValue] = useState<number>(0);
 
   const pageTitle = "Fibonacci";
 
@@ -16,25 +17,40 @@ const Fibonacci: NextPage = () => {
     return sequence;
   };
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(e.target.value);
+    if (value > 20 || value < 0) {
+      return;
+    }
+    setValue(value);
+    setFibArray(fibonacci(value));
+  };
+
   return (
     <div className={styles.main}>
       <h1 className={styles.title}>{pageTitle}</h1>
       <div className={styles.card}>
         <p>
-          Increase or decrease the numbers of factors to see the Fibonacci
-          sequence
+          Increase or decrease the numbers of factors you want to see of the
+          Fibonacci sequence
         </p>
-        <p>Min: 5 | Max: 20</p>
-        <div className={styles.content}>
           <input
             type={"number"}
-            min={5}
+            min={1}
             max={20}
+            maxLength={2}
+            value={value}
+            className={styles.input}
             onChange={(e) => {
-              setFibArray(fibonacci(parseInt(e.target.value)));
+              handleChange(e);
             }}
           ></input>
-          <p>{fibArray.map((i) => ` ${i} |`)}</p>
+        <div className={styles.content}>
+          {fibArray.map((i) => (
+            <p key={i} className={styles.result}>
+              {i}
+            </p>
+          ))}
         </div>
       </div>
     </div>

@@ -1,13 +1,22 @@
 import type { NextPage } from "next";
 import styles from "../../styles/Home.module.css";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const Factorial: NextPage = () => {
-  const [value, setValue] = useState<number>(2);
+  const [value, setValue] = useState<number>(0);
   const [result, setResult] = useState<number>(0);
 
   const factorial = (n: number): number => {
     return n > 1 ? n * factorial(n - 1) : 1;
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(e.target.value);
+    if (value > 20 || value < 0) {
+      return;
+    }
+    setValue(value);
+    setResult(factorial(value));
   };
 
   const pageTitle = "Factorial";
@@ -20,12 +29,15 @@ const Factorial: NextPage = () => {
           <input
             type={"number"}
             min={0}
+            max={20}
+            maxLength={2}
             className={styles.input}
+            value={value}
             onChange={(e) => {
-              setResult(factorial(parseInt(e.target.value)));
+              handleChange(e);
             }}
           ></input>
-          <p className={styles.result}>{result}</p>
+          <p className={`${styles.result} ${styles.resultLong}`}>{result}</p>
         </div>
       </div>
     </div>

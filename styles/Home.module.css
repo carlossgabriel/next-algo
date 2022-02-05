@@ -86,7 +86,7 @@
   text-decoration: none;
   border: 1px solid #eaeaea;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
-  transition: 0.3s;
+  transition: 0.3s linear;
   padding: 32px;
   background-color: white;
   border-radius: 8px;
@@ -106,7 +106,7 @@
 }
 
 .card p {
-  margin: 0;
+  /* margin: 0; */
   font-size: 1.25rem;
   line-height: 1.5;
 }
@@ -118,15 +118,17 @@
 
 .content {
   display: flex;
-  justify-content: space-between;
   flex-direction: row;
   margin: 8px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .input {
   width: 72px;
+  height: 38px;
   padding: 8px 8px 8px 24px;
-  margin: 8px 0;
+  margin: 8px;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -135,8 +137,23 @@
 }
 
 .result {
+  width: 60px;
   padding: 8px;
+  border: 0.5px solid rgb(233, 231, 231);
+  border-radius: 4px;
+  box-sizing: border-box;
   font-size: large;
+  text-align: center;
+  margin: 4px;
+}
+
+.result:hover {
+  background-color: rgb(243, 243, 138);
+}
+
+.resultLong {
+  min-width: 54px;
+  width: auto;
 }
 
 @media (max-width: 600px) {
