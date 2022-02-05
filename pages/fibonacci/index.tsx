@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import styles from "../../styles/Home.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import BackButton from "../../components/backButton";
 
 const Fibonacci: NextPage = () => {
   const [fibArray, setFibArray] = useState<number[]>([]);
@@ -27,13 +28,17 @@ const Fibonacci: NextPage = () => {
   };
 
   return (
-    <div className={styles.main}>
-      <h1 className={styles.title}>{pageTitle}</h1>
-      <div className={styles.card}>
-        <p>
-          Increase or decrease the numbers of factors you want to see of the
-          Fibonacci sequence
-        </p>
+    <>
+      <div className={styles.main}>
+        <h1 className={styles.title}>
+          <BackButton />
+          {pageTitle}
+        </h1>
+        <div className={styles.card}>
+          <p>
+            Increase or decrease the numbers of factors you want to see of the
+            Fibonacci sequence
+          </p>
           <input
             type={"number"}
             min={1}
@@ -45,15 +50,16 @@ const Fibonacci: NextPage = () => {
               handleChange(e);
             }}
           ></input>
-        <div className={styles.content}>
-          {fibArray.map((i) => (
-            <p key={i} className={styles.result}>
-              {i}
-            </p>
-          ))}
+          <div className={styles.content}>
+            {fibArray.map((i) => (
+              <p key={i} className={styles.result}>
+                {i}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

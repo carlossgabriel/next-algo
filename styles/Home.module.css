@@ -50,6 +50,8 @@
   display: flex;
   color: black;
   text-transform: uppercase;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .title,
@@ -154,6 +156,11 @@
 .resultLong {
   min-width: 54px;
   width: auto;
+}
+
+.backButton {
+  margin-right: 10%;
+  font-size: xx-large;
 }
 
 @media (max-width: 600px) {

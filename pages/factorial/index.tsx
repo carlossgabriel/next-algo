@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import styles from "../../styles/Home.module.css";
 import React, { useState } from "react";
+import BackButton from "../../components/backButton";
 
 const Factorial: NextPage = () => {
   const [value, setValue] = useState<number>(0);
@@ -22,7 +23,10 @@ const Factorial: NextPage = () => {
   const pageTitle = "Factorial";
   return (
     <div className={styles.main}>
-      <h1 className={styles.title}>{pageTitle}</h1>
+      <h1 className={styles.title}>
+        <BackButton />
+        {pageTitle}
+      </h1>
       <div className={styles.card}>
         <p>Type the number to see it`s factorial</p>
         <div className={styles.content}>
