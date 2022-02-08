@@ -6,7 +6,7 @@
 
 .main {
   min-height: 100vh;
-  padding: 4rem 0;
+  /* padding: 4rem 0; */
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -161,6 +161,7 @@
 .backButton {
   margin-right: 10%;
   font-size: xx-large;
+  text-decoration: none;
 }
 
 @media (max-width: 600px) {
