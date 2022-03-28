@@ -93,7 +93,7 @@
   background-color: white;
   border-radius: 8px;
   margin: 32px;
-  max-width: 70%;
+  max-width: 60%;
 }
 
 .card:hover,
@@ -111,6 +111,11 @@
   /* margin: 0; */
   font-size: 1.25rem;
   line-height: 1.5;
+}
+
+.card .observation {
+  font-size: 1rem;
+  line-height: 1;
 }
 
 .logo {

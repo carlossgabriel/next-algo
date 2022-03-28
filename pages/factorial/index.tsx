@@ -29,6 +29,7 @@ const Factorial: NextPage = () => {
       </h1>
       <div className={styles.card}>
         <p>Type the number to see it`s factorial</p>
+        <p className={styles.observation}>Max: 20</p>
         <div className={styles.content}>
           <input
             type={"number"}

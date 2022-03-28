@@ -43,6 +43,11 @@ const Home: NextPage = () => {
                 <a>Fibonacci</a>
               </Link>
             </div>
+            <div className={styles.title}>
+              <Link href="/intersection">
+                <a>Intersection</a>
+              </Link>
+            </div>
           </div>
         </main>
       </div>
