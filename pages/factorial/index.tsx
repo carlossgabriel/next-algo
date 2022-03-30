@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
-import styles from "../../styles/Home.module.css";
 import React, { useState } from "react";
+
 import BackButton from "../../components/backButton";
+import styles from "../../styles/Home.module.css";
 
 const Factorial: NextPage = () => {
   const [value, setValue] = useState<number>(0);

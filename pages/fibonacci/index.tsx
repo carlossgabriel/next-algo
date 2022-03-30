@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
-import styles from "../../styles/Home.module.css";
 import { useState } from "react";
+
 import BackButton from "../../components/backButton";
+import styles from "../../styles/Home.module.css";
 
 const Fibonacci: NextPage = () => {
   const [fibArray, setFibArray] = useState<number[]>([]);
@@ -39,9 +40,7 @@ const Fibonacci: NextPage = () => {
             Increase or decrease the numbers of factors you want to see of the
             Fibonacci sequence
           </p>
-          <p className={styles.observation}>
-            Max: 20
-          </p>
+          <p className={styles.observation}>Max: 20</p>
           <input
             type={"number"}
             min={1}

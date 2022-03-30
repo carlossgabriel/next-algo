@@ -143,6 +143,17 @@
   font-size: large;
 }
 
+.textInput {
+  height: 38px;
+  padding: 8px 8px 8px 24px;
+  margin: 8px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: medium;
+}
+
 .result {
   width: 60px;
   padding: 8px;
