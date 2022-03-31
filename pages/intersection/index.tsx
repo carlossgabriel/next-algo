@@ -5,15 +5,16 @@ import BackButton from "../../components/backButton";
 import styles from "../../styles/Home.module.css";
 
 const Intersection: NextPage = () => {
-  // const [fibArray, setFibArray] = useState<number[]>([]);
   const [wordA, setWordAValue] = useState("");
   const [wordB, setWordBValue] = useState("");
   const [intersection, setIntersection] = useState<string[]>([]);
 
   const pageTitle = "Intersection";
 
-  const handleClick = (wordA: string, wordB: string) => {
-    setIntersection(calculateIntersection(wordA, wordB));
+  const handleChange = (wordA: string, wordB: string) => {
+    setIntersection(
+      calculateIntersection(wordA.toUpperCase(), wordB.toUpperCase())
+    );
   };
 
   const calculateIntersection = (wordA: string, wordB: string) => {
@@ -38,7 +39,7 @@ const Intersection: NextPage = () => {
           <p className={styles.observation}>
             Minumum letters: 3 Maximum letters: 15
           </p>
-          <div>
+          <div className={styles.inputContainer}>
             <input
               id="wordA"
               type={"text"}
@@ -46,7 +47,7 @@ const Intersection: NextPage = () => {
               maxLength={15}
               className={styles.textInput}
               onChange={(e) => {
-                setWordAValue(e.target.value);
+                setWordAValue(e.target.value.toUpperCase());
               }}
               value={wordA}
             ></input>
@@ -57,22 +58,17 @@ const Intersection: NextPage = () => {
               maxLength={15}
               className={styles.textInput}
               onChange={(e) => {
-                setWordBValue(e.target.value);
+                setWordBValue(e.target.value.toUpperCase());
+                handleChange(wordA, wordB);
               }}
               value={wordB}
             ></input>
           </div>
-          <button
-            className={styles.button}
-            onClick={() => {
-              handleClick(wordA, wordB);
-            }}
-          >
-            Submit
-          </button>
-          <div className={intersection.length ? styles.result : ""}>
+          <div className={styles.intersection}>
             {intersection.length > 0 ? (
-              <p>{intersection.map((letter) => letter)}</p>
+              intersection.map((letter, index) => {
+                return <p key={index}>{letter}</p>;
+              })
             ) : (
               <p>No intersection</p>
             )}
