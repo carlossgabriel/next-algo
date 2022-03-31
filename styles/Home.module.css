@@ -83,7 +83,10 @@
 }
 
 .card {
-  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   color: inherit;
   text-decoration: none;
   border: 1px solid #eaeaea;
@@ -93,7 +96,7 @@
   background-color: white;
   border-radius: 8px;
   margin: 32px;
-  max-width: 60%;
+  max-width: 70%;
 }
 
 .card:hover,
