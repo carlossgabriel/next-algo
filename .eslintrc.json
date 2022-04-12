@@ -21,7 +21,12 @@
     "prettier"
   ],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "camelcase": "off",
     "import/no-unresolved": "error",
     "@typescript-eslint/naming-convention": [
@@ -48,7 +53,10 @@
       "error",
       "ignorePackages",
       {
-        "ts": "never"
+        "js": "never",
+        "ts": "never",
+        "jsx": "never",
+        "tsx": "never"
       }
     ],
     "import-helpers/order-imports": [
