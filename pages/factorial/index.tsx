@@ -4,6 +4,7 @@ import { NextPageWithLayout } from "../_app";
 import Layout from "../../components/layout";
 import styles from "../../styles/Home.module.css";
 
+const pageTitle = "Factorial";
 const Factorial: NextPageWithLayout = () => {
   const [value, setValue] = useState<number>(0);
   const [result, setResult] = useState<number>(0);
@@ -21,10 +22,8 @@ const Factorial: NextPageWithLayout = () => {
     setResult(factorial(value));
   };
 
-  const pageTitle = "Factorial";
   return (
     <div className={styles.main}>
-      <h1 className={styles.title}>{pageTitle}</h1>
       <div className={styles.card}>
         <p>Type the number to see it`s factorial</p>
         <p className={styles.observation}>Max: 20</p>
@@ -48,7 +47,7 @@ const Factorial: NextPageWithLayout = () => {
 };
 
 Factorial.getLayout = function getLayout(page: ReactElement) {
-  return <Layout>{page}</Layout>;
+  return <Layout title={pageTitle}>{page}</Layout>;
 };
 
 export default Factorial;

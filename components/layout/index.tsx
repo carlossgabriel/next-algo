@@ -1,14 +1,16 @@
 import Head from "next/head";
 
-import styles from "../styles/Home.module.css";
-import BackButton from "./backButton/backButton";
+import BackButton from "../backButton";
+import styles from "../layout/layout.module.css";
 
 export default function Layout({
   children,
   home,
+  title,
 }: {
   children: React.ReactNode;
   home?: boolean;
+  title: string;
 }) {
   return (
     <>
@@ -19,7 +21,10 @@ export default function Layout({
         {home ? (
           <h1 className={styles.title}>Next JS Algorithms</h1>
         ) : (
-          <BackButton />
+          <>
+            <BackButton />
+            <h1 className={styles.title}>{title}</h1>
+          </>
         )}
       </header>
       <main className={styles.main}>{children}</main>

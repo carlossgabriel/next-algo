@@ -4,11 +4,10 @@ import { NextPageWithLayout } from "../_app";
 import Layout from "../../components/layout";
 import styles from "../../styles/Home.module.css";
 
+const pageTitle = "Fibonacci";
 const Fibonacci: NextPageWithLayout = () => {
   const [fibArray, setFibArray] = useState<number[]>([]);
   const [value, setValue] = useState<number>(0);
-
-  const pageTitle = "Fibonacci";
 
   const fibonacci = (e: number) => {
     const sequence = [0, 1];
@@ -31,7 +30,6 @@ const Fibonacci: NextPageWithLayout = () => {
   return (
     <>
       <div className={styles.main}>
-        <h1 className={styles.title}>{pageTitle}</h1>
         <div className={styles.card}>
           <p>
             Increase or decrease the numbers of factors you want to see of the
@@ -63,7 +61,7 @@ const Fibonacci: NextPageWithLayout = () => {
 };
 
 Fibonacci.getLayout = function getLayout(page: ReactElement) {
-  return <Layout>{page}</Layout>;
+  return <Layout title={pageTitle}>{page}</Layout>;
 };
 
 export default Fibonacci;

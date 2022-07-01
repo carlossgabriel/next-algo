@@ -4,12 +4,11 @@ import { NextPageWithLayout } from "../_app";
 import Layout from "../../components/layout";
 import styles from "../../styles/Home.module.css";
 
+const pageTitle = "Intersection";
 const Intersection: NextPageWithLayout = () => {
   const [wordA, setWordAValue] = useState("");
   const [wordB, setWordBValue] = useState("");
   const [intersection, setIntersection] = useState<string[]>([]);
-
-  const pageTitle = "Intersection";
 
   const handleChange = (wordA: string, wordB: string) => {
     setIntersection(
@@ -28,7 +27,6 @@ const Intersection: NextPageWithLayout = () => {
   return (
     <>
       <div className={styles.main}>
-        <h1 className={styles.title}>{pageTitle}</h1>
         <div className={styles.card}>
           <p>
             Type two words to find the intersection of the letters between them.
@@ -77,7 +75,7 @@ const Intersection: NextPageWithLayout = () => {
 };
 
 Intersection.getLayout = function getLayout(page: ReactElement) {
-  return <Layout>{page}</Layout>;
+  return <Layout title={pageTitle}>{page}</Layout>;
 };
 
 export default Intersection;
