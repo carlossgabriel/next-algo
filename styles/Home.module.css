@@ -193,12 +193,6 @@
   text-align: center;  
 }
 
-.backButton {
-  margin-right: 10%;
-  font-size: xx-large;
-  text-decoration: none;
-}
-
 @media (max-width: 600px) {
   .grid {
     width: 100%;

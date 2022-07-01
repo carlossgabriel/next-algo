@@ -1,10 +1,10 @@
-import type { NextPage } from "next";
-import { useState } from "react";
+import { ReactElement, useState } from "react";
 
-import BackButton from "../../components/backButton";
+import { NextPageWithLayout } from "../_app";
+import Layout from "../../components/layout";
 import styles from "../../styles/Home.module.css";
 
-const Intersection: NextPage = () => {
+const Intersection: NextPageWithLayout = () => {
   const [wordA, setWordAValue] = useState("");
   const [wordB, setWordBValue] = useState("");
   const [intersection, setIntersection] = useState<string[]>([]);
@@ -28,10 +28,7 @@ const Intersection: NextPage = () => {
   return (
     <>
       <div className={styles.main}>
-        <h1 className={styles.title}>
-          <BackButton />
-          {pageTitle}
-        </h1>
+        <h1 className={styles.title}>{pageTitle}</h1>
         <div className={styles.card}>
           <p>
             Type two words to find the intersection of the letters between them.
@@ -77,6 +74,10 @@ const Intersection: NextPage = () => {
       </div>
     </>
   );
+};
+
+Intersection.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
 };
 
 export default Intersection;

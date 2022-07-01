@@ -1,10 +1,10 @@
-import type { NextPage } from "next";
-import { useState } from "react";
+import { ReactElement, useState } from "react";
 
-import BackButton from "../../components/backButton";
+import { NextPageWithLayout } from "../_app";
+import Layout from "../../components/layout";
 import styles from "../../styles/Home.module.css";
 
-const Fibonacci: NextPage = () => {
+const Fibonacci: NextPageWithLayout = () => {
   const [fibArray, setFibArray] = useState<number[]>([]);
   const [value, setValue] = useState<number>(0);
 
@@ -31,10 +31,7 @@ const Fibonacci: NextPage = () => {
   return (
     <>
       <div className={styles.main}>
-        <h1 className={styles.title}>
-          <BackButton />
-          {pageTitle}
-        </h1>
+        <h1 className={styles.title}>{pageTitle}</h1>
         <div className={styles.card}>
           <p>
             Increase or decrease the numbers of factors you want to see of the
@@ -63,6 +60,10 @@ const Fibonacci: NextPage = () => {
       </div>
     </>
   );
+};
+
+Fibonacci.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
 };
 
 export default Fibonacci;

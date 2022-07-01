@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 import styles from "../styles/Home.module.css";
+import BackButton from "./backButton/backButton";
 
 export default function Layout({
   children,
@@ -16,14 +17,9 @@ export default function Layout({
       </Head>
       <header className={styles.header}>
         {home ? (
-          <>
-            <h1></h1>
-            <p></p>
-          </>
+          <h1 className={styles.title}>Next JS Algorithms</h1>
         ) : (
-          <>
-            <h2></h2>
-          </>
+          <BackButton />
         )}
       </header>
       <main className={styles.main}>{children}</main>

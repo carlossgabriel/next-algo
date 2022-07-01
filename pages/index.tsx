@@ -1,11 +1,13 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import { ReactElement } from "react";
 
 import Layout from "../components/layout";
 import styles from "../styles/Home.module.css";
+import { NextPageWithLayout } from "./_app";
 
-const Home: NextPage = () => {
+const Home: NextPageWithLayout = () => {
   return (
     <Layout>
       <div className={styles.container}>
@@ -32,7 +34,6 @@ const Home: NextPage = () => {
         </Head>
 
         <main className={styles.main}>
-          <h1 className={styles.title}>Next JS Algorithms</h1>
           <div className={styles.card}>
             <div className={styles.title}>
               <Link href="/factorial">
@@ -54,6 +55,10 @@ const Home: NextPage = () => {
       </div>
     </Layout>
   );
+};
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return <Layout home={true}>{page}</Layout>;
 };
 
 export default Home;
